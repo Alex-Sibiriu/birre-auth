@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Beer;
+use App\Models\Category;
 
 class BeerController extends Controller
 {
@@ -12,7 +14,16 @@ class BeerController extends Controller
      */
     public function index()
     {
-        //
+        $beers = Beer::orderBy('name')->paginate(20);
+
+        return view('admin.beers.index', compact('beers'));
+    }
+
+    public function categoryFilter(Category $category)
+    {
+        $beers = $category->beers;
+
+        return view('admin.beers.index', compact('beers'));
     }
 
     /**

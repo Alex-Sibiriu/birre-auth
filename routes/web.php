@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\BeerController;
 
 
 
@@ -21,10 +22,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth','verified'])
-    ->prefix('admin')->name('admin.')->group(function(){
+Route::middleware(['auth', 'verified'])
+    ->prefix('admin')->name('admin.')->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('home');
+        Route::resource('beers', BeerController::class);
 
+        Route::get('category-filter/{category}', [BeerController::class, 'categoryFilter'])->name('category.filter');
     });
 
 
@@ -35,4 +38,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
