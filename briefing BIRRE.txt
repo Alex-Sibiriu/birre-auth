@@ -14,3 +14,5 @@ RICHIESTE:
 -CRUD delle categorie.
 -Ricerca per gradazione alcolica.
 -Tracciamento delle modifiche con Utente dome indicatore.
+-Associare i clienti alle birre vendute, per ogni birra risalire al cliente che l'ha acquistata
+-

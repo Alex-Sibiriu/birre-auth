@@ -3,7 +3,7 @@ DATABASE IN BIRRE
 -TABELLA Users. MANY TO ONE CON BEERS.
 
 -TABELLA Beers.
-[id, prezzo, nome, rating(average), immagine, slug] 
+[id, prezzo, nome, rating(average), immagine, slug]
 (manca la gradazione alcolica e la disponibilità in magazzino)
 ONE TO MANY CON CATEGORIES.
 ONE TO MANY CON USERS.
@@ -19,4 +19,10 @@ BIRRE:
 - create delle birre e edit della birra.
 
 CATEGORIE:
--index con crud in una pagina. 
+-index con crud in una pagina.
+
+-Tabella Clienti many to many con birre
+[id, nome , slug , , città, indirizzo (fake) , store_type_id(tipo attività)]
+
+-Tabella Tipi attività one to many con clienti
+[id, nome, slug  ]
