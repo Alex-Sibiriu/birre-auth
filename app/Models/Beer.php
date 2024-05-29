@@ -14,4 +14,9 @@ class Beer extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function clients()
+    {
+        return $this->belongsToMany(Client::class);
+    }
 }

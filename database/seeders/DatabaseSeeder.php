@@ -17,8 +17,8 @@ class DatabaseSeeder extends Seeder
             // CategoryTableSeeder::class,
             // BeerTableSeeder::class,
             // StoreTypeTableSeeder::class,
-            ClientsTableSeeder::class,
-
+            // ClientsTableSeeder::class,
+            ClientBeerSeeder::class,
         ]);
     }
 }

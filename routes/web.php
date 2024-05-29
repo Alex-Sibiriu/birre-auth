@@ -4,8 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\BeerController;
-
-
+use App\Http\Controllers\Admin\ClientController;
+use App\Http\Controllers\Admin\StoreTypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,9 +25,13 @@ Route::get('/', function () {
 Route::middleware(['auth', 'verified'])
     ->prefix('admin')->name('admin.')->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('home');
+
         Route::resource('beers', BeerController::class);
+        Route::resource('clients', ClientController::class);
+        Route::resource('store_types', StoreTypeController::class);
 
         Route::get('category-filter/{category}', [BeerController::class, 'categoryFilter'])->name('category.filter');
+        Route::patch('modify-pieces/{beer}', [BeerController::class, 'modifyPieces'])->name('modify-pieces');
     });
 
 
